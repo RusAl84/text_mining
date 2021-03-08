@@ -5,7 +5,7 @@
 ##Ссылка на материалы курса:   
   http://gg.gg/text_analitic  
   
-## Сообщество ВКотакте:
+## Сообщество ВКотакте:  
   http://vk.com/text_analitic  
 
 
