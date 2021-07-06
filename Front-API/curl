@@ -1,0 +1,4 @@
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"word":"девочка"}' \
+  http://localhost:5000/api/most_similar
