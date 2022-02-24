@@ -45,7 +45,7 @@ for word in texts.split():
 texts = str2
 print(texts)
 
-records_count = 30
+records_count = 10
 tfIdfTransformer = TfidfVectorizer(ngram_range=(1, 4), use_idf=True, max_features=records_count)
 countVectorizer = CountVectorizer(ngram_range=(1, 4), max_features=records_count)
 wordCount = countVectorizer.fit_transform([texts])
