@@ -12,14 +12,13 @@ def printTF_IDF(texts):
     names = countVectorizer.get_feature_names()
     df = []
     df = pd.DataFrame(list(names), columns=['names'])
-    wc=wordCount.T.todense()
-    df = df.assign(Word_Count=wc)
-    tf = TfIdf.T.todense()
-    print(tf)
-    df = df.assign(TF_IDF=tf)
+    df = df.assign(Word_Count=wordCount.T.todense())
+    df = df.assign(TF_IDF=TfIdf.T.todense())
+    # df.insert(1, 'Word_Count', wordCount.T.todense())
+    # df.insert(1, 'TF_IDF', TfIdf.T.todense())
     df = df.sort_values('TF_IDF', ascending=False)
     print(df)
-    # print(df.head(records_count))
+
 
 
 if __name__ == "__main__":
