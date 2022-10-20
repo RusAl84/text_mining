@@ -54,7 +54,7 @@ class TextAnalyseTFIDF:
         self.data = self.data.lower()
         self.data = self.data.replace('\n', ' ')
 
-    def print_TFIDF(self,records_count = 10):
+    def print_TFIDF(self, records_count=10):
         tfIdfTransformer = TfidfVectorizer(ngram_range=(1, 4), use_idf=True, max_features=records_count)
         countVectorizer = CountVectorizer(ngram_range=(1, 4), max_features=records_count)
         wordCount = countVectorizer.fit_transform([self.data])
@@ -67,40 +67,30 @@ class TextAnalyseTFIDF:
         df = df.sort_values('TF_IDF', ascending=False)
         print(df)
 
+    def display(self, message=""):
+        print(message, self.data, "\n")
+
+
 if __name__ == '__main__':
     TF = TextAnalyseTFIDF()
 
     TF.load_data()
-    print("Исходный текст:")
-    print(TF.data)
-    print("")
+    TF.display("Исходный текст:")
 
     TF.remove_digit()
-    print("Убрали все цифры:")
-    print(TF.data)
-    print("")
+    TF.display("Убрали все цифры:")
 
     TF.remove_punctuation()
-    print("Убрали все знаки припинания:")
-    print(TF.data)
-    print("")
+    TF.display("Убрали все знаки припинания:")
 
     TF.remove_punctuation()
-    print("Убрали все стоп слова:")
-    print(TF.data)
-    print("")
+    TF.display("Убрали все стоп слова:")
 
     TF.remove_short_words(3)
-    print("Убрали все слова из 1й буквы:")
-    print(TF.data)
-    print("")
+    TF.display("Убрали все слова из 1й буквы:")
 
     TF.remove_paragraf_to_lower()
-    print("Убрали все переносы строк и привести в нижний регистр:")
-    print(TF.data)
-    print("")
+    TF.display("Убрали все переносы строк и привести в нижний регистр:")
 
     TF.print_TFIDF()
-    print("")
-
 
